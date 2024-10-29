@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite de Conto de Fadas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+     <!-- Adiciona o elemento de áudio com autoplay e controle de volume -->
+  <audio id="background-music" autoplay loop>
+    <source src="Essa Eu Fiz Pro Nosso Amor - Jão.mp3" type="audio/mpeg">
+    Seu navegador não suporta o elemento de áudio.
+  </audio>
+    <!-- Container do livro -->
+    <div id="book">
+        <!-- Capa do livro -->
+        <div id="cover" class="page cover active">
+            <img src="borboletas.png" alt="Capa - Floresta" class="cover-img">
+            <div class="magic-effect"></div>
+            <button class="next-page" onclick="openBook()">Clique para abrir</button>
+        </div>
+
+        <!-- Página de história (foto de Marcella e texto no centro) -->
+        <div id="story" class="page">
+            <img src="assets/marcela.png" alt="Marcella" class="background-img">
+            <div class="magic-effect"></div>
+            <div class="text-container">
+                <p>O Conto de uma Menina Mulher</p>
+
+                    <p>Era uma vez, em um reino onde os sonhos dançavam nas nuvens, uma menina chamada Marcela. Com seus cabelos brilhantes e olhos cheios de esperança, ela passava os dias imersa em aventuras mágicas, cercada por seus brinquedos encantados. Cada boneca e carrinho eram seus companheiros de brincadeira, e juntas, elas exploravam mundos de imaginação.
+                    
+                    Mas, conforme o tempo passava, Marcela começou a sentir que estava se transformando. O que antes era apenas um jogo, agora se tornava uma jornada. Em um belo dia, ao olhar para seu guarda-roupa, ela percebeu que estava na hora de deixar os brinquedos para trás. Era hora de crescer e se tornar uma verdadeira princesa, não apenas em seu reino de fantasia, mas também na vida real.
+                    
+                    Então, ela vestiu seu All Star, um símbolo de liberdade e autoconfiança. Com um brilho nos olhos e um sorriso radiante, Marcela saiu para o mundo, pronta para seguir sua caminhada como uma menina mulher. 
+                    
+                    E assim, neste dia tão especial, ela convida todos os amigos e familiares para celebrar sua transformação mágica. Venham participar do seu baile de 15 anos, que acontecerá em um encantador castelo, onde a alegria e a amizade se unirão em um espetáculo de luz e amor. Preparem-se para dançar, rir e criar memórias inesquecíveis ao lado da nossa querida Marcela, que, com todo o seu encanto, está pronta para brilhar.
+                    
+                    O conto da vida de Marcela está apenas começando, e cada um de vocês é uma parte especial dessa nova aventura. Que essa festa seja tão mágica quanto os sonhos que ela guarda em seu coração!</p>
+            </div>
+            <button class="next-page" onclick="goToPage('info')">Próxima página</button>
+        </div>
+
+        <!-- Página com os detalhes do evento -->
+        <div id="info" class="page">
+            <img src="assets/borboleta-asas.png" alt="borboleta-asas" class="background-img">
+            <div class="magic-effect"></div>
+            <div class="text-container1">
+                <h2>Detalhes do Evento</h2>
+                <p>O evento acontecerá no dia 28 de novembro, às 20h, no Buffet Estrela.</p>
+                <p>Esperamos você para celebrar esse momento especial com Marcella e sua família!</p>
+                <button onclick="confirmRSVP()">Confirmar Presença no WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+     
+    <script src="script.js"></script>
+     <!-- Script para garantir o autoplay e exibir controle se bloqueado -->
+  <script>
+    const music = document.getElementById("background-music");
+
+    // Função para iniciar a música se o autoplay for bloqueado
+    function playMusic() {
+      music.play().catch(error => {
+        alert("Clique para ouvir a música de fundo 🎶"); // Exibe uma mensagem se o autoplay for bloqueado
+      });
+    }
+
+    // Tenta iniciar a música
+    window.addEventListener("load", playMusic);
+  </script>
+</body>
+</html>
