@@ -62,14 +62,31 @@
   <script>
     const music = document.getElementById("background-music");
 
-    // Função para iniciar a música se o autoplay for bloqueado
+    // Função para iniciar a música quando o usuário interagir
     function playMusic() {
       music.play().catch(error => {
-        alert("Clique para ouvir a música de fundo 🎶"); // Exibe uma mensagem se o autoplay for bloqueado
+        // Se o autoplay for bloqueado, mostra um botão para ativar o áudio
+        const playButton = document.createElement('button');
+        playButton.innerText = "Clique para ouvir a música 🎶";
+        playButton.style.position = 'fixed';
+        playButton.style.bottom = '20px';
+        playButton.style.right = '20px';
+        playButton.style.padding = '10px';
+        playButton.style.backgroundColor = '#6200ee';
+        playButton.style.color = '#fff';
+        playButton.style.border = 'none';
+        playButton.style.borderRadius = '5px';
+        playButton.style.cursor = 'pointer';
+        document.body.appendChild(playButton);
+
+        playButton.addEventListener('click', () => {
+          music.play();
+          playButton.remove(); // Remove o botão após o clique
+        });
       });
     }
 
-    // Tenta iniciar a música
+    // Tenta iniciar a música quando a página carrega
     window.addEventListener("load", playMusic);
   </script>
 </body>
